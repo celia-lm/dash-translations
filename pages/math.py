@@ -11,7 +11,8 @@ def layout():
             dcc.Dropdown(
                 id='operation',
                 options=["+", "-", "x", "/"],
-                value='+'
+                value='+',
+                clearable=False 
             ),
             dcc.Input(id='number2', type='number', min=1, value=1),
             html.Button(id="calculate", children=translated_item("calculate.children"))

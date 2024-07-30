@@ -11,8 +11,15 @@ server = app.server
 server.secret_key = os.environ.get('FLASK_SECRET_KEY', b'123456abcdef') # random string prefixed by b so it's bytes
 
 def app_layout():
+    
+    if 'language' in session:
+        language = session['language'] 
+    else:
+        language = DEFAULT_LANGUAGE
+
     # for the translated_items of this layout we need to specify page='app',
     # otherwise it will take the page name of the children page that's being rendered at the moment (home, math)
+    
     return html.Div(
     [
         html.Div(
